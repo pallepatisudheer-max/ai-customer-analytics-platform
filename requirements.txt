@@ -4,4 +4,4 @@ numpy==2.4.6
 scikit-learn==1.9.0
 matplotlib==3.10.9
 joblib==1.5.3
-gunicorn==23.0.0python app.py
+gunicorn==23.0.0
