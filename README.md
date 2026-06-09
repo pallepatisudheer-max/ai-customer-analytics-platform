@@ -92,6 +92,14 @@ AI Customer Analytics Platform
 - Deep Learning Models
 - Cloud Deployment
 
+- 
+Even better, make the URL clickable:
+
+
+## Live Demo
+
+🔗 [View Live Project](https://ai-customer-analytics-platform.onrender.com)
+
 ## Author
 
 Sudheer
