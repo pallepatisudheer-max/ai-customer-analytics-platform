@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Purchase Prediction</title>
+
+    <style>
+    body{
+        font-family: Arial, sans-serif;
+        margin: 30px;
+        background:#f4f6f9;
+    }
+
+    .card{
+        display:inline-block;
+        background:white;
+        padding:20px;
+        margin:10px;
+        border-radius:10px;
+        box-shadow:0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    table{
+        border-collapse:collapse;
+        background:white;
+    }
+
+    th{
+        background:#007bff;
+        color:white;
+    }
+
+    th,td{
+        padding:10px;
+        border:1px solid #ddd;
+    }
+
+    img{
+        border-radius:10px;
+        box-shadow:0 2px 8px rgba(0,0,0,0.2);
+        margin-bottom:20px;
+    }
+    </style>
+
+</head>
+<body>
+
+<h1>Purchase Analytics Dashboard</h1>
+
+<div class="card">
+<h3>Total Customers</h3>
+<h2>2240</h2>
+</div>
+
+<div class="card">
+<h3>R² Score</h3>
+<h2>{{ r2 }}</h2>
+</div>
+
+<div class="card">
+<h3>MAE</h3>
+<h2>{{ mae }}</h2>
+</div>
+
+<div class="card">
+<h3>Model</h3>
+<h2>Random Forest</h2>
+</div>
+<h2>Purchase Visualization</h2>
+
+<img
+src="{{ url_for('static', filename='images/purchase_chart.png') }}"
+width="900">
+<br><br>
+<img 
+src="{{ url_for('static',
+filename='images/meat_chart.png') }}"
+width="900">
+
+<br><br>
+
+<img
+src="{{ url_for('static',
+filename='images/fish_chart.png') }}"
+width="900">
+
+<br>
+<h2>Model Performance</h2>
+
+<p><b>R² Score:</b> {{ r2 }}</p>
+
+<p><b>Mean Absolute Error:</b> {{ mae }}</p>
+<h2>Business Insights</h2>
+
+<ul>
+<li>Wine is the highest selling category.</li>
+<li>Random Forest achieved strong prediction accuracy.</li>
+<li>High-income customers spend significantly more.</li>
+<li>Top customers contribute a large portion of sales.</li>
+</ul>
+
+<br>
+
+
+<table border="1" cellpadding="8">
+
+<tr>
+    <th>ID</th>
+    <th>Income</th>
+    <th>Wine</th>
+    <th>Meat</th>
+    <th>Fish</th>
+</tr>
+
+{% for customer in customers %}
+<tr>
+    <td>{{ customer.ID }}</td>
+    <td>{{ customer.Income }}</td>
+    <td>{{ customer.MntWines }}</td>
+    <td>{{ customer.MntMeatProducts }}</td>
+    <td>{{ customer.MntFishProducts }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<br><br>
+
+
+<a href="/">Back to Dashboard</a>
+
+</body>
+</html>

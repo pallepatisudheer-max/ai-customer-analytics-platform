@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Segmentation</title>
+</head>
+<body>
+
+<h1>Customer Segmentation</h1>
+
+<img
+    src="{{ url_for('static', filename='images/customer_segments.png') }}"
+    width="900"
+>
+
+<h2>Income Distribution</h2>
+
+<img
+src="{{ url_for('static',
+filename='images/income_distribution.png') }}"
+width="900">
+
+
+
+<h2>Top 10 High Income Customers</h2>
+
+<img
+src="{{ url_for('static',
+filename='images/top_income_chart.png') }}"
+width="900">
+
+<br><br>
+
+<h2>Customer Data</h2>
+
+<table border="1" cellpadding="8">
+    <h1>Customer Segmentation</h1>
+
+<h2>Analytics Summary</h2>
+
+<table border="1" cellpadding="15">
+<tr>
+<td><b>Total Customers</b><br>2240</td>
+<td><b>Clusters</b><br>4</td>
+<td><b>Average Income</b><br>₹52,000</td>
+<td><b>Highest Spending Cluster</b><br>2</td>
+</tr>
+</table>
+
+<br>
+
+<img
+src="{{ url_for('static',
+filename='images/customer_segments.png') }}"
+width="900">
+
+<h2>Customer Data</h2>
+
+<table border="1" cellpadding="8">
+
+<tr>
+    <th>Customer ID</th>
+    <th>Income</th>
+    <th>Kidhome</th>
+    <th>Teenhome</th>
+    <th>Recency</th>
+</tr>
+
+{% for customer in customers %}
+<tr>
+    <td>{{ customer.ID }}</td>
+    <td>{{ customer.Income }}</td>
+    <td>{{ customer.Kidhome }}</td>
+    <td>{{ customer.Teenhome }}</td>
+    <td>{{ customer.Recency }}</td>
+</tr>
+{% endfor %}
+
+
+</table>
+<br><br>
+
+<a href="/">Back to Dashboard</a>
+
+</body>
+</html>

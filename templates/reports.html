@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analytics Reports</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <style>
+        body{
+            background:#f4f7fa;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        .header{
+            background:#0f172a;
+            color:white;
+            padding:25px;
+            text-align:center;
+        }
+
+        .card{
+            border:none;
+            border-radius:15px;
+            transition:.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-5px);
+        }
+
+        .metric{
+            text-align:center;
+            padding:20px;
+        }
+
+        .metric h2{
+            color:#2563eb;
+            font-weight:bold;
+        }
+
+        .section-title{
+            margin-top:40px;
+            margin-bottom:20px;
+            font-weight:bold;
+        }
+
+        img{
+            border-radius:12px;
+            box-shadow:0 4px 12px rgba(0,0,0,.15);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>📊 Business Analytics Report</h1>
+    <p>AI Customer Analytics & Personalization Platform</p>
+</div>
+
+<div class="container mt-5">
+
+    <h3 class="section-title">Executive Summary</h3>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="card shadow">
+                <div class="metric">
+                    <h2>2240</h2>
+                    <p>Total Customers</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow">
+                <div class="metric">
+                    <h2>₹52K</h2>
+                    <p>Average Income</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow">
+                <div class="metric">
+                    <h2>4</h2>
+                    <p>Customer Segments</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow">
+                <div class="metric">
+                    <h2>88%</h2>
+                    <p>Purchase Accuracy</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <h3 class="section-title">Project Insights</h3>
+
+    <div class="card shadow p-4">
+        <ul>
+            <li>Most customers belong to medium income groups.</li>
+            <li>High-income customers spend more on wine products.</li>
+            <li>Customer churn rate is relatively low.</li>
+            <li>Four major customer segments were identified.</li>
+            <li>Random Forest produced strong prediction results.</li>
+        </ul>
+    </div>
+
+    <h3 class="section-title">Analytics Modules Status</h3>
+
+    <table class="table table-bordered table-striped shadow">
+        <thead class="table-dark">
+            <tr>
+                <th>Module</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Customer Segmentation</td>
+                <td>✅ Completed</td>
+            </tr>
+
+            <tr>
+                <td>Purchase Prediction</td>
+                <td>✅ Completed</td>
+            </tr>
+
+            <tr>
+                <td>Churn Prediction</td>
+                <td>✅ Completed</td>
+            </tr>
+
+            <tr>
+                <td>Recommendation System</td>
+                <td>✅ Completed</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 class="section-title">Generated Analytics Charts</h3>
+
+    <div class="row">
+
+        <div class="col-md-6 mb-4">
+            <img src="{{ url_for('static', filename='images/customer_segments.png') }}"
+                 class="img-fluid">
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <img src="{{ url_for('static', filename='images/churn_chart.png') }}"
+                 class="img-fluid">
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <img src="{{ url_for('static', filename='images/churn_pie.png') }}"
+                 class="img-fluid">
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <img src="{{ url_for('static', filename='images/purchase_chart.png') }}"
+                 class="img-fluid">
+        </div>
+
+    </div>
+
+    <div class="text-center mt-4 mb-5">
+        <a href="/" class="btn btn-primary btn-lg">
+            Back to Dashboard
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

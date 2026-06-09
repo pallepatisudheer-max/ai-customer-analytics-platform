@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Churn Prediction</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin:30px;
+            background:#f4f6f9;
+        }
+
+        h1,h2{
+            color:#333;
+        }
+
+        .card{
+            display:inline-block;
+            background:white;
+            padding:20px;
+            margin:10px;
+            border-radius:10px;
+            box-shadow:0 2px 8px rgba(0,0,0,0.2);
+            min-width:180px;
+            text-align:center;
+        }
+
+        table{
+            border-collapse:collapse;
+            background:white;
+            width:100%;
+        }
+
+        th{
+            background:#dc3545;
+            color:white;
+        }
+
+        th,td{
+            padding:10px;
+            border:1px solid #ddd;
+            text-align:center;
+        }
+
+        img{
+            border-radius:10px;
+            box-shadow:0 2px 8px rgba(0,0,0,0.2);
+            margin-top:20px;
+        }
+
+        a{
+            text-decoration:none;
+            font-weight:bold;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<h1>Customer Churn Analytics Dashboard</h1>
+
+<div class="card">
+    <h3>Total Customers</h3>
+    <h2>7043</h2>
+</div>
+
+<div class="card">
+    <h3>Model Accuracy</h3>
+    <h2>{{ accuracy }}%</h2>
+</div>
+
+<div class="card">
+    <h3>High Risk Customers</h3>
+    <h2>1869</h2>
+</div>
+
+<div class="card">
+    <h3>Model</h3>
+    <h2>Random Forest</h2>
+</div>
+
+<br><br>
+
+<h2>Model Performance</h2>
+
+<table border="1" cellpadding="15">
+<tr>
+<td>
+<b>Accuracy</b><br>
+{{ accuracy }}%
+</td>
+
+<td>
+<b>Precision</b><br>
+{{ precision }}%
+</td>
+
+<td>
+<b>Recall</b><br>
+{{ recall }}%
+</td>
+</tr>
+</table>
+
+<br><br>
+<h2>Churn Insights</h2>
+
+<table border="1" cellpadding="15">
+<tr>
+<td>
+<b>Total Customers</b><br>
+7043
+</td>
+
+<td>
+<b>Churned Customers</b><br>
+1869
+</td>
+
+<td>
+<b>Retention Rate</b><br>
+73.5%
+</td>
+</tr>
+</table>
+
+<h2>Churn Visualization</h2>
+
+
+
+<img
+src="{{ url_for('static', filename='images/churn_chart.png') }}"
+width="700">
+
+<br><br>
+
+<h2>Churn Percentage Pie Chart</h2>
+
+<img
+src="{{ url_for('static',
+filename='images/churn_pie.png') }}"
+width="600">
+
+<br>
+<br><br>
+
+<h2>Customer Churn Data</h2>
+
+<table>
+<tr>
+    <th>Gender</th>
+    <th>Senior Citizen</th>
+    <th>Tenure</th>
+    <th>Monthly Charges</th>
+    <th>Churn</th>
+</tr>
+
+{% for customer in customers %}
+<tr>
+    <td>{{ customer.gender }}</td>
+    <td>{{ customer.SeniorCitizen }}</td>
+    <td>{{ customer.tenure }}</td>
+    <td>{{ customer.MonthlyCharges }}</td>
+    <td>{{ customer.Churn }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<br><br>
+
+<a href="/">← Back to Dashboard</a>
+
+</body>
+</html>
